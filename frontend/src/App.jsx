@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './components/common/Toast';
+import ScrollToTop from './components/common/ScrollToTop';
 import HomePage from './pages/HomePage';
 import ProductListPage from './pages/ProductListPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -15,6 +16,7 @@ function App() {
     <CartProvider>
       <ToastProvider>
         <Router>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductListPage />} />

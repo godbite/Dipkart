@@ -123,6 +123,3 @@ npm run dev
 
 **Devansh Vashist**
 
-## 📄 License
-
-MIT License

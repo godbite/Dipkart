@@ -19,4 +19,10 @@ const startServer = async () => {
   }
 };
 
-startServer();
+// Start server locally
+if (require.main === module) {
+  startServer();
+}
+
+// Export for Vercel serverless
+module.exports = app;

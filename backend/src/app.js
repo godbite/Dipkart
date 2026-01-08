@@ -23,6 +23,17 @@ app.use('/api/v1/orders', defaultUser);
 app.use('/api/v1/user', defaultUser);
 
 // Routes
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Flipkart Clone API',
+    version: 'v1',
+    documentation: '/api/v1',
+    status: 'Running'
+  });
+});
+
 app.get('/api/v1', (req, res) => {
   res.json({
     success: true,

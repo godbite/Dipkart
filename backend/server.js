@@ -4,11 +4,14 @@ const connectDB = require('./src/config/db');
 
 const PORT = process.env.PORT || 5010;
 
-// Connect to database and start server
+// Connect to database immediately (for both local and serverless)
+connectDB().catch(err => {
+  console.error('Initial MongoDB connection failed:', err);
+});
+
+// Start server locally
 const startServer = async () => {
   try {
-    await connectDB();
-    
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
       console.log(`API available at http://localhost:${PORT}/api/v1`);
@@ -19,7 +22,6 @@ const startServer = async () => {
   }
 };
 
-// Start server locally
 if (require.main === module) {
   startServer();
 }

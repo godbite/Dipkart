@@ -77,11 +77,13 @@ const Header = () => {
       <div className="header-container">
         {/* Logo */}
         <Link to="/" className="header-logo">
-          <div className="logo-text">Flipkart</div>
+          <div className="logo-text">Dipkart</div>
           <div className="logo-tagline">
             <span>Explore</span>
             <span className="plus">Plus</span>
-            <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/plusFreeBadge-edd498.svg" alt="plus" className="plus-badge" />
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#ffe500">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
           </div>
         </Link>
 

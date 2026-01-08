@@ -1,0 +1,255 @@
+.order-history-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.orders-main {
+  flex: 1;
+  background: var(--bg-gray);
+  padding: 16px;
+}
+
+.orders-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Search Bar */
+.orders-search-bar {
+  display: flex;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: var(--card-shadow);
+}
+
+.orders-search-bar input {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+.orders-search-bar input::placeholder {
+  color: var(--text-secondary);
+}
+
+.orders-search-bar .search-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--primary-blue);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.orders-search-bar .search-btn:hover {
+  background: #1a5dc8;
+}
+
+/* Orders List */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Order Item Row */
+.order-item-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: var(--card-shadow);
+}
+
+.order-item-image {
+  flex-shrink: 0;
+}
+
+.order-item-image img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.order-item-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.order-item-details h3 {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.order-item-details .item-variant {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.order-item-price {
+  width: 100px;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.order-item-status {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.order-item-status .status-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.order-item-status .status-dot {
+  font-size: 10px;
+}
+
+.order-item-status .status-subtext {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  margin-left: 18px;
+}
+
+.rate-review-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  margin-left: 18px;
+  color: var(--primary-blue);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.rate-review-link svg {
+  color: #ff9f00;
+}
+
+.rate-review-link:hover {
+  text-decoration: underline;
+}
+
+/* No Orders */
+.no-orders {
+  background: white;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: var(--card-shadow);
+}
+
+.no-orders svg {
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.no-orders h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.no-orders p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.no-orders .btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--primary-blue);
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Loading */
+.loading-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orders-main {
+    padding: 10px;
+  }
+
+  .order-item-row {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .order-item-details {
+    flex: 1 1 calc(100% - 100px);
+  }
+
+  .order-item-price {
+    width: auto;
+    order: 3;
+  }
+
+  .order-item-status {
+    width: 100%;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-gray);
+  }
+
+  .order-item-status .status-header,
+  .order-item-status .status-subtext,
+  .rate-review-link {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-search-bar {
+    flex-direction: column;
+  }
+
+  .orders-search-bar .search-btn {
+    justify-content: center;
+  }
+
+  .order-item-image img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .order-item-details h3 {
+    font-size: 14px;
+  }
+}

@@ -1,5 +1,14 @@
 # Dipkart - Flipkart Clone
 
+![System Architecture](assets/system_architecture.png)
+
+## 📊 Schema Design
+
+![Entity Relationship Diagram - Part 1](assets/schema_design_part1.png)
+![Entity Relationship Diagram - Part 2](assets/schema_design_part2.png)
+![Entity Relationship Diagram - Part 3](assets/schema_design_part3.png)
+![Entity Relationship Diagram - Part 4](assets/schema_design_part4.png)
+
 A full-stack e-commerce application built with React (Vite) and Node.js/Express, replicating core Flipkart features.
 
 ## 🚀 Features

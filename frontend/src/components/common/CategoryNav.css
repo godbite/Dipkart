@@ -4,7 +4,7 @@
   margin: 10px;
   border-radius: 4px;
   overflow: hidden;
-  max-width: 100%;
+  width: calc(100% - 20px);
   box-sizing: border-box;
 }
 
@@ -41,6 +41,7 @@
   transition: background 0.2s;
   white-space: nowrap;
   position: relative;
+  flex-shrink: 0;
 }
 
 .category-item:hover {
@@ -80,11 +81,12 @@
   .category-nav-container {
     max-width: 100%;
     justify-content: flex-start;
-    gap: 4px;
+    gap: 0;
+    padding: 0;
   }
 
   .category-item {
-    padding: 10px 16px;
+    padding: 10px 14px;
   }
 
   .category-image {
@@ -93,43 +95,46 @@
   }
 
   .category-name {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
 @media (max-width: 768px) {
   .category-nav {
-    margin: 8px;
+    margin: 0;
     border-radius: 0;
+    width: 100%;
   }
 
   .category-nav-container {
-    padding: 0 8px;
+    padding: 0 4px;
   }
 
   .category-item {
-    padding: 8px 12px;
+    padding: 8px 10px;
+    min-width: 70px;
   }
 
   .category-image {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 4px;
   }
 
   .category-name {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
   }
 }
 
 @media (max-width: 480px) {
   .category-nav {
-    margin: 4px 0;
+    margin: 0;
   }
 
   .category-item {
-    padding: 6px 10px;
+    padding: 6px 8px;
+    min-width: 60px;
   }
 
   .category-image {
@@ -138,7 +143,7 @@
   }
 
   .category-name {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .dropdown-icon {

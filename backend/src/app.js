@@ -17,6 +17,22 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Ensure database connection for serverless (middleware)
+app.use(async (req, res, next) => {
+  try {
+    const connectDB = require('./config/db');
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error('Database connection error:', error);
+    res.status(503).json({
+      success: false,
+      message: 'Database connection failed',
+      error: error.message
+    });
+  }
+});
+
 // Apply default user middleware to routes that need it
 app.use('/api/v1/cart', defaultUser);
 app.use('/api/v1/orders', defaultUser);

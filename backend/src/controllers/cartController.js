@@ -53,6 +53,7 @@ const addToCart = async (req, res, next) => {
       });
     }
 
+
     // Find or create cart
     let cart = await Cart.findOne({ user: req.user._id });
     if (!cart) {

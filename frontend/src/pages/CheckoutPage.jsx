@@ -13,6 +13,7 @@ const CheckoutPage = () => {
   const { showToast } = useToast();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
   const [address, setAddress] = useState({
     fullName: '',
     phone: '',
@@ -63,19 +64,26 @@ const CheckoutPage = () => {
     setError('');
     
     try {
+      console.log('Sending order data:', { shippingAddress: address, paymentMethod: 'COD' });
       const response = await createOrder({
         shippingAddress: address,
         paymentMethod: 'COD'
       });
+      console.log('Order creation response:', response);
       
       if (response.success) {
+        setIsOrderPlaced(true);
+        console.log('Navigating to:', `/order-confirmation/${response.data.orderId}`);
         // Clear cart in frontend state (backend already clears it)
         await clearCart();
         // Show success toast
         showToast('🎉 Order placed successfully!', 'success');
         navigate(`/order-confirmation/${response.data.orderId}`);
+      } else {
+        console.error('Order creation failed (success=false):', response);
       }
     } catch (err) {
+      console.error('Order creation error:', err);
       setError(err.response?.data?.error || 'Failed to place order. Please try again.');
       showToast('Failed to place order', 'error');
     } finally {
@@ -83,7 +91,7 @@ const CheckoutPage = () => {
     }
   };
 
-  if (!cart.items || cart.items.length === 0) {
+  if (!isOrderPlaced && (!cart.items || cart.items.length === 0)) {
     navigate('/cart');
     return null;
   }
